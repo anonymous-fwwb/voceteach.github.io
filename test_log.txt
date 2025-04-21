@@ -1,0 +1,1256 @@
+SparkTTS 情感和音高批量测试
+开始时间: 2025-03-27 12:02:15
+测试文本: 这是一个用于测试不同情感和音高组合的示例文本。
+
+==================================================
+
+性别: male, 情感: UNKNOWN, 音高: very_low - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: male, 情感: UNKNOWN, 音高: low
+文件: example\emotion_tests\20250327_1202\male\UNKNOWN\male_UNKNOWN_low_20250327120223693.wav
+生成时间: 3.95 秒
+------------------------------
+性别: male, 情感: UNKNOWN, 音高: moderate
+文件: example\emotion_tests\20250327_1202\male\UNKNOWN\male_UNKNOWN_moderate_20250327120227642.wav
+生成时间: 3.61 秒
+------------------------------
+性别: male, 情感: UNKNOWN, 音高: high
+文件: example\emotion_tests\20250327_1202\male\UNKNOWN\male_UNKNOWN_high_20250327120231256.wav
+生成时间: 3.72 秒
+------------------------------
+性别: male, 情感: UNKNOWN, 音高: very_high
+文件: example\emotion_tests\20250327_1202\male\UNKNOWN\male_UNKNOWN_very_high_20250327120234971.wav
+生成时间: 3.55 秒
+------------------------------
+性别: male, 情感: NEUTRAL, 音高: very_low - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: male, 情感: NEUTRAL, 音高: low
+文件: example\emotion_tests\20250327_1202\male\NEUTRAL\male_NEUTRAL_low_20250327120242335.wav
+生成时间: 3.38 秒
+------------------------------
+性别: male, 情感: NEUTRAL, 音高: moderate
+文件: example\emotion_tests\20250327_1202\male\NEUTRAL\male_NEUTRAL_moderate_20250327120245712.wav
+生成时间: 3.54 秒
+------------------------------
+性别: male, 情感: NEUTRAL, 音高: high
+文件: example\emotion_tests\20250327_1202\male\NEUTRAL\male_NEUTRAL_high_20250327120249255.wav
+生成时间: 3.66 秒
+------------------------------
+性别: male, 情感: NEUTRAL, 音高: very_high
+文件: example\emotion_tests\20250327_1202\male\NEUTRAL\male_NEUTRAL_very_high_20250327120252912.wav
+生成时间: 3.56 秒
+------------------------------
+性别: male, 情感: ANGRY, 音高: very_low - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: male, 情感: ANGRY, 音高: low
+文件: example\emotion_tests\20250327_1202\male\ANGRY\male_ANGRY_low_20250327120300288.wav
+生成时间: 3.64 秒
+------------------------------
+性别: male, 情感: ANGRY, 音高: moderate
+文件: example\emotion_tests\20250327_1202\male\ANGRY\male_ANGRY_moderate_20250327120303929.wav
+生成时间: 3.62 秒
+------------------------------
+性别: male, 情感: ANGRY, 音高: high
+文件: example\emotion_tests\20250327_1202\male\ANGRY\male_ANGRY_high_20250327120307553.wav
+生成时间: 3.76 秒
+------------------------------
+性别: male, 情感: ANGRY, 音高: very_high
+文件: example\emotion_tests\20250327_1202\male\ANGRY\male_ANGRY_very_high_20250327120311312.wav
+生成时间: 3.51 秒
+------------------------------
+性别: male, 情感: HAPPY, 音高: very_low - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: male, 情感: HAPPY, 音高: low
+文件: example\emotion_tests\20250327_1202\male\HAPPY\male_HAPPY_low_20250327120318603.wav
+生成时间: 3.42 秒
+------------------------------
+性别: male, 情感: HAPPY, 音高: moderate
+文件: example\emotion_tests\20250327_1202\male\HAPPY\male_HAPPY_moderate_20250327120322021.wav
+生成时间: 3.63 秒
+------------------------------
+性别: male, 情感: HAPPY, 音高: high
+文件: example\emotion_tests\20250327_1202\male\HAPPY\male_HAPPY_high_20250327120325653.wav
+生成时间: 3.67 秒
+------------------------------
+性别: male, 情感: HAPPY, 音高: very_high
+文件: example\emotion_tests\20250327_1202\male\HAPPY\male_HAPPY_very_high_20250327120329320.wav
+生成时间: 3.50 秒
+------------------------------
+性别: male, 情感: SAD, 音高: very_low - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: male, 情感: SAD, 音高: low
+文件: example\emotion_tests\20250327_1202\male\SAD\male_SAD_low_20250327120336746.wav
+生成时间: 3.43 秒
+------------------------------
+性别: male, 情感: SAD, 音高: moderate
+文件: example\emotion_tests\20250327_1202\male\SAD\male_SAD_moderate_20250327120340178.wav
+生成时间: 3.83 秒
+------------------------------
+性别: male, 情感: SAD, 音高: high
+文件: example\emotion_tests\20250327_1202\male\SAD\male_SAD_high_20250327120344011.wav
+生成时间: 3.93 秒
+------------------------------
+性别: male, 情感: SAD, 音高: very_high
+文件: example\emotion_tests\20250327_1202\male\SAD\male_SAD_very_high_20250327120347944.wav
+生成时间: 3.61 秒
+------------------------------
+性别: male, 情感: FEARFUL, 音高: very_low - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: male, 情感: FEARFUL, 音高: low
+文件: example\emotion_tests\20250327_1202\male\FEARFUL\male_FEARFUL_low_20250327120355437.wav
+生成时间: 3.43 秒
+------------------------------
+性别: male, 情感: FEARFUL, 音高: moderate
+文件: example\emotion_tests\20250327_1202\male\FEARFUL\male_FEARFUL_moderate_20250327120358869.wav
+生成时间: 3.72 秒
+------------------------------
+性别: male, 情感: FEARFUL, 音高: high
+文件: example\emotion_tests\20250327_1202\male\FEARFUL\male_FEARFUL_high_20250327120402586.wav
+生成时间: 3.70 秒
+------------------------------
+性别: male, 情感: FEARFUL, 音高: very_high
+文件: example\emotion_tests\20250327_1202\male\FEARFUL\male_FEARFUL_very_high_20250327120406286.wav
+生成时间: 3.42 秒
+------------------------------
+性别: male, 情感: DISGUSTED, 音高: very_low - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: male, 情感: DISGUSTED, 音高: low
+文件: example\emotion_tests\20250327_1202\male\DISGUSTED\male_DISGUSTED_low_20250327120413442.wav
+生成时间: 3.26 秒
+------------------------------
+性别: male, 情感: DISGUSTED, 音高: moderate
+文件: example\emotion_tests\20250327_1202\male\DISGUSTED\male_DISGUSTED_moderate_20250327120416701.wav
+生成时间: 3.48 秒
+------------------------------
+性别: male, 情感: DISGUSTED, 音高: high
+文件: example\emotion_tests\20250327_1202\male\DISGUSTED\male_DISGUSTED_high_20250327120420186.wav
+生成时间: 3.50 秒
+------------------------------
+性别: male, 情感: DISGUSTED, 音高: very_high
+文件: example\emotion_tests\20250327_1202\male\DISGUSTED\male_DISGUSTED_very_high_20250327120423685.wav
+生成时间: 3.40 秒
+------------------------------
+性别: male, 情感: SURPRISED, 音高: very_low - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: male, 情感: SURPRISED, 音高: low
+文件: example\emotion_tests\20250327_1202\male\SURPRISED\male_SURPRISED_low_20250327120430753.wav
+生成时间: 3.38 秒
+------------------------------
+性别: male, 情感: SURPRISED, 音高: moderate
+文件: example\emotion_tests\20250327_1202\male\SURPRISED\male_SURPRISED_moderate_20250327120434134.wav
+生成时间: 3.67 秒
+------------------------------
+性别: male, 情感: SURPRISED, 音高: high
+文件: example\emotion_tests\20250327_1202\male\SURPRISED\male_SURPRISED_high_20250327120437801.wav
+生成时间: 3.58 秒
+------------------------------
+性别: male, 情感: SURPRISED, 音高: very_high
+文件: example\emotion_tests\20250327_1202\male\SURPRISED\male_SURPRISED_very_high_20250327120441376.wav
+生成时间: 3.46 秒
+------------------------------
+性别: male, 情感: SARCASTIC, 音高: very_low - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: male, 情感: SARCASTIC, 音高: low
+文件: example\emotion_tests\20250327_1202\male\SARCASTIC\male_SARCASTIC_low_20250327120448563.wav
+生成时间: 3.40 秒
+------------------------------
+性别: male, 情感: SARCASTIC, 音高: moderate
+文件: example\emotion_tests\20250327_1202\male\SARCASTIC\male_SARCASTIC_moderate_20250327120451959.wav
+生成时间: 3.52 秒
+------------------------------
+性别: male, 情感: SARCASTIC, 音高: high
+文件: example\emotion_tests\20250327_1202\male\SARCASTIC\male_SARCASTIC_high_20250327120455476.wav
+生成时间: 3.67 秒
+------------------------------
+性别: male, 情感: SARCASTIC, 音高: very_high
+文件: example\emotion_tests\20250327_1202\male\SARCASTIC\male_SARCASTIC_very_high_20250327120459142.wav
+生成时间: 3.56 秒
+------------------------------
+性别: male, 情感: EXCITED, 音高: very_low - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: male, 情感: EXCITED, 音高: low
+文件: example\emotion_tests\20250327_1202\male\EXCITED\male_EXCITED_low_20250327120506412.wav
+生成时间: 3.49 秒
+------------------------------
+性别: male, 情感: EXCITED, 音高: moderate
+文件: example\emotion_tests\20250327_1202\male\EXCITED\male_EXCITED_moderate_20250327120509900.wav
+生成时间: 3.51 秒
+------------------------------
+性别: male, 情感: EXCITED, 音高: high
+文件: example\emotion_tests\20250327_1202\male\EXCITED\male_EXCITED_high_20250327120513408.wav
+生成时间: 3.62 秒
+------------------------------
+性别: male, 情感: EXCITED, 音高: very_high
+文件: example\emotion_tests\20250327_1202\male\EXCITED\male_EXCITED_very_high_20250327120517025.wav
+生成时间: 3.42 秒
+------------------------------
+性别: male, 情感: SLEEPY, 音高: very_low - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: male, 情感: SLEEPY, 音高: low
+文件: example\emotion_tests\20250327_1202\male\SLEEPY\male_SLEEPY_low_20250327120524212.wav
+生成时间: 3.30 秒
+------------------------------
+性别: male, 情感: SLEEPY, 音高: moderate
+文件: example\emotion_tests\20250327_1202\male\SLEEPY\male_SLEEPY_moderate_20250327120527508.wav
+生成时间: 3.49 秒
+------------------------------
+性别: male, 情感: SLEEPY, 音高: high
+文件: example\emotion_tests\20250327_1202\male\SLEEPY\male_SLEEPY_high_20250327120531000.wav
+生成时间: 3.61 秒
+------------------------------
+性别: male, 情感: SLEEPY, 音高: very_high
+文件: example\emotion_tests\20250327_1202\male\SLEEPY\male_SLEEPY_very_high_20250327120534607.wav
+生成时间: 3.46 秒
+------------------------------
+性别: male, 情感: CONFUSED, 音高: very_low - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: male, 情感: CONFUSED, 音高: low
+文件: example\emotion_tests\20250327_1202\male\CONFUSED\male_CONFUSED_low_20250327120541849.wav
+生成时间: 3.32 秒
+------------------------------
+性别: male, 情感: CONFUSED, 音高: moderate
+文件: example\emotion_tests\20250327_1202\male\CONFUSED\male_CONFUSED_moderate_20250327120545174.wav
+生成时间: 3.58 秒
+------------------------------
+性别: male, 情感: CONFUSED, 音高: high
+文件: example\emotion_tests\20250327_1202\male\CONFUSED\male_CONFUSED_high_20250327120548749.wav
+生成时间: 3.62 秒
+------------------------------
+性别: male, 情感: CONFUSED, 音高: very_high
+文件: example\emotion_tests\20250327_1202\male\CONFUSED\male_CONFUSED_very_high_20250327120552374.wav
+生成时间: 3.43 秒
+------------------------------
+性别: male, 情感: EMPHASIS, 音高: very_low - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: male, 情感: EMPHASIS, 音高: low
+文件: example\emotion_tests\20250327_1202\male\EMPHASIS\male_EMPHASIS_low_20250327120559497.wav
+生成时间: 3.29 秒
+------------------------------
+性别: male, 情感: EMPHASIS, 音高: moderate
+文件: example\emotion_tests\20250327_1202\male\EMPHASIS\male_EMPHASIS_moderate_20250327120602790.wav
+生成时间: 3.53 秒
+------------------------------
+性别: male, 情感: EMPHASIS, 音高: high
+文件: example\emotion_tests\20250327_1202\male\EMPHASIS\male_EMPHASIS_high_20250327120606323.wav
+生成时间: 3.67 秒
+------------------------------
+性别: male, 情感: EMPHASIS, 音高: very_high
+文件: example\emotion_tests\20250327_1202\male\EMPHASIS\male_EMPHASIS_very_high_20250327120609998.wav
+生成时间: 3.43 秒
+------------------------------
+性别: male, 情感: LAUGHING, 音高: very_low - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: male, 情感: LAUGHING, 音高: low
+文件: example\emotion_tests\20250327_1202\male\LAUGHING\male_LAUGHING_low_20250327120617142.wav
+生成时间: 3.31 秒
+------------------------------
+性别: male, 情感: LAUGHING, 音高: moderate
+文件: example\emotion_tests\20250327_1202\male\LAUGHING\male_LAUGHING_moderate_20250327120620448.wav
+生成时间: 3.52 秒
+------------------------------
+性别: male, 情感: LAUGHING, 音高: high
+文件: example\emotion_tests\20250327_1202\male\LAUGHING\male_LAUGHING_high_20250327120623974.wav
+生成时间: 3.60 秒
+------------------------------
+性别: male, 情感: LAUGHING, 音高: very_high
+文件: example\emotion_tests\20250327_1202\male\LAUGHING\male_LAUGHING_very_high_20250327120627573.wav
+生成时间: 3.45 秒
+------------------------------
+性别: male, 情感: SINGING, 音高: very_low - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: male, 情感: SINGING, 音高: low
+文件: example\emotion_tests\20250327_1202\male\SINGING\male_SINGING_low_20250327120634790.wav
+生成时间: 3.36 秒
+------------------------------
+性别: male, 情感: SINGING, 音高: moderate
+文件: example\emotion_tests\20250327_1202\male\SINGING\male_SINGING_moderate_20250327120638156.wav
+生成时间: 3.54 秒
+------------------------------
+性别: male, 情感: SINGING, 音高: high
+文件: example\emotion_tests\20250327_1202\male\SINGING\male_SINGING_high_20250327120641697.wav
+生成时间: 3.61 秒
+------------------------------
+性别: male, 情感: SINGING, 音高: very_high
+文件: example\emotion_tests\20250327_1202\male\SINGING\male_SINGING_very_high_20250327120645305.wav
+生成时间: 3.48 秒
+------------------------------
+性别: male, 情感: WORRIED, 音高: very_low - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: male, 情感: WORRIED, 音高: low
+文件: example\emotion_tests\20250327_1202\male\WORRIED\male_WORRIED_low_20250327120652547.wav
+生成时间: 3.34 秒
+------------------------------
+性别: male, 情感: WORRIED, 音高: moderate
+文件: example\emotion_tests\20250327_1202\male\WORRIED\male_WORRIED_moderate_20250327120655885.wav
+生成时间: 3.58 秒
+------------------------------
+性别: male, 情感: WORRIED, 音高: high
+文件: example\emotion_tests\20250327_1202\male\WORRIED\male_WORRIED_high_20250327120659463.wav
+生成时间: 3.68 秒
+------------------------------
+性别: male, 情感: WORRIED, 音高: very_high
+文件: example\emotion_tests\20250327_1202\male\WORRIED\male_WORRIED_very_high_20250327120703147.wav
+生成时间: 3.45 秒
+------------------------------
+性别: male, 情感: WHISPER, 音高: very_low - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: male, 情感: WHISPER, 音高: low
+文件: example\emotion_tests\20250327_1202\male\WHISPER\male_WHISPER_low_20250327120710382.wav
+生成时间: 3.29 秒
+------------------------------
+性别: male, 情感: WHISPER, 音高: moderate
+文件: example\emotion_tests\20250327_1202\male\WHISPER\male_WHISPER_moderate_20250327120713674.wav
+生成时间: 3.54 秒
+------------------------------
+性别: male, 情感: WHISPER, 音高: high
+文件: example\emotion_tests\20250327_1202\male\WHISPER\male_WHISPER_high_20250327120717213.wav
+生成时间: 3.62 秒
+------------------------------
+性别: male, 情感: WHISPER, 音高: very_high
+文件: example\emotion_tests\20250327_1202\male\WHISPER\male_WHISPER_very_high_20250327120720838.wav
+生成时间: 3.46 秒
+------------------------------
+性别: male, 情感: ANXIOUS, 音高: very_low - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: male, 情感: ANXIOUS, 音高: low
+文件: example\emotion_tests\20250327_1202\male\ANXIOUS\male_ANXIOUS_low_20250327120728084.wav
+生成时间: 3.34 秒
+------------------------------
+性别: male, 情感: ANXIOUS, 音高: moderate
+文件: example\emotion_tests\20250327_1202\male\ANXIOUS\male_ANXIOUS_moderate_20250327120731420.wav
+生成时间: 3.59 秒
+------------------------------
+性别: male, 情感: ANXIOUS, 音高: high
+文件: example\emotion_tests\20250327_1202\male\ANXIOUS\male_ANXIOUS_high_20250327120735012.wav
+生成时间: 3.66 秒
+------------------------------
+性别: male, 情感: ANXIOUS, 音高: very_high
+文件: example\emotion_tests\20250327_1202\male\ANXIOUS\male_ANXIOUS_very_high_20250327120738671.wav
+生成时间: 3.42 秒
+------------------------------
+性别: male, 情感: NO-AGREEMENT, 音高: very_low - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: male, 情感: NO-AGREEMENT, 音高: low
+文件: example\emotion_tests\20250327_1202\male\NO-AGREEMENT\male_NO-AGREEMENT_low_20250327120745819.wav
+生成时间: 3.29 秒
+------------------------------
+性别: male, 情感: NO-AGREEMENT, 音高: moderate
+文件: example\emotion_tests\20250327_1202\male\NO-AGREEMENT\male_NO-AGREEMENT_moderate_20250327120749103.wav
+生成时间: 3.52 秒
+------------------------------
+性别: male, 情感: NO-AGREEMENT, 音高: high
+文件: example\emotion_tests\20250327_1202\male\NO-AGREEMENT\male_NO-AGREEMENT_high_20250327120752629.wav
+生成时间: 3.60 秒
+------------------------------
+性别: male, 情感: NO-AGREEMENT, 音高: very_high
+文件: example\emotion_tests\20250327_1202\male\NO-AGREEMENT\male_NO-AGREEMENT_very_high_20250327120756228.wav
+生成时间: 3.43 秒
+------------------------------
+性别: male, 情感: APOLOGETIC, 音高: very_low - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: male, 情感: APOLOGETIC, 音高: low
+文件: example\emotion_tests\20250327_1202\male\APOLOGETIC\male_APOLOGETIC_low_20250327120803335.wav
+生成时间: 3.31 秒
+------------------------------
+性别: male, 情感: APOLOGETIC, 音高: moderate
+文件: example\emotion_tests\20250327_1202\male\APOLOGETIC\male_APOLOGETIC_moderate_20250327120806644.wav
+生成时间: 3.52 秒
+------------------------------
+性别: male, 情感: APOLOGETIC, 音高: high
+文件: example\emotion_tests\20250327_1202\male\APOLOGETIC\male_APOLOGETIC_high_20250327120810161.wav
+生成时间: 3.64 秒
+------------------------------
+性别: male, 情感: APOLOGETIC, 音高: very_high
+文件: example\emotion_tests\20250327_1202\male\APOLOGETIC\male_APOLOGETIC_very_high_20250327120813803.wav
+生成时间: 3.46 秒
+------------------------------
+性别: male, 情感: CONCERNED, 音高: very_low - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: male, 情感: CONCERNED, 音高: low
+文件: example\emotion_tests\20250327_1202\male\CONCERNED\male_CONCERNED_low_20250327120820949.wav
+生成时间: 3.30 秒
+------------------------------
+性别: male, 情感: CONCERNED, 音高: moderate
+文件: example\emotion_tests\20250327_1202\male\CONCERNED\male_CONCERNED_moderate_20250327120824252.wav
+生成时间: 3.53 秒
+------------------------------
+性别: male, 情感: CONCERNED, 音高: high
+文件: example\emotion_tests\20250327_1202\male\CONCERNED\male_CONCERNED_high_20250327120827786.wav
+生成时间: 3.54 秒
+------------------------------
+性别: male, 情感: CONCERNED, 音高: very_high
+文件: example\emotion_tests\20250327_1202\male\CONCERNED\male_CONCERNED_very_high_20250327120831327.wav
+生成时间: 3.40 秒
+------------------------------
+性别: male, 情感: ENUNCIATED, 音高: very_low - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: male, 情感: ENUNCIATED, 音高: low
+文件: example\emotion_tests\20250327_1202\male\ENUNCIATED\male_ENUNCIATED_low_20250327120838430.wav
+生成时间: 3.26 秒
+------------------------------
+性别: male, 情感: ENUNCIATED, 音高: moderate
+文件: example\emotion_tests\20250327_1202\male\ENUNCIATED\male_ENUNCIATED_moderate_20250327120841694.wav
+生成时间: 3.48 秒
+------------------------------
+性别: male, 情感: ENUNCIATED, 音高: high
+文件: example\emotion_tests\20250327_1202\male\ENUNCIATED\male_ENUNCIATED_high_20250327120845177.wav
+生成时间: 3.54 秒
+------------------------------
+性别: male, 情感: ENUNCIATED, 音高: very_high
+文件: example\emotion_tests\20250327_1202\male\ENUNCIATED\male_ENUNCIATED_very_high_20250327120848720.wav
+生成时间: 3.36 秒
+------------------------------
+性别: male, 情感: ASSERTIVE, 音高: very_low - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: male, 情感: ASSERTIVE, 音高: low
+文件: example\emotion_tests\20250327_1202\male\ASSERTIVE\male_ASSERTIVE_low_20250327120855700.wav
+生成时间: 3.21 秒
+------------------------------
+性别: male, 情感: ASSERTIVE, 音高: moderate
+文件: example\emotion_tests\20250327_1202\male\ASSERTIVE\male_ASSERTIVE_moderate_20250327120858909.wav
+生成时间: 3.43 秒
+------------------------------
+性别: male, 情感: ASSERTIVE, 音高: high
+文件: example\emotion_tests\20250327_1202\male\ASSERTIVE\male_ASSERTIVE_high_20250327120902335.wav
+生成时间: 3.50 秒
+------------------------------
+性别: male, 情感: ASSERTIVE, 音高: very_high
+文件: example\emotion_tests\20250327_1202\male\ASSERTIVE\male_ASSERTIVE_very_high_20250327120905837.wav
+生成时间: 3.38 秒
+------------------------------
+性别: male, 情感: ENCOURAGING, 音高: very_low - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: male, 情感: ENCOURAGING, 音高: low
+文件: example\emotion_tests\20250327_1202\male\ENCOURAGING\male_ENCOURAGING_low_20250327120913151.wav
+生成时间: 3.31 秒
+------------------------------
+性别: male, 情感: ENCOURAGING, 音高: moderate
+文件: example\emotion_tests\20250327_1202\male\ENCOURAGING\male_ENCOURAGING_moderate_20250327120916459.wav
+生成时间: 3.46 秒
+------------------------------
+性别: male, 情感: ENCOURAGING, 音高: high
+文件: example\emotion_tests\20250327_1202\male\ENCOURAGING\male_ENCOURAGING_high_20250327120919917.wav
+生成时间: 3.56 秒
+------------------------------
+性别: male, 情感: ENCOURAGING, 音高: very_high
+文件: example\emotion_tests\20250327_1202\male\ENCOURAGING\male_ENCOURAGING_very_high_20250327120923480.wav
+生成时间: 3.43 秒
+------------------------------
+性别: male, 情感: CONTEMPT, 音高: very_low - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: male, 情感: CONTEMPT, 音高: low
+文件: example\emotion_tests\20250327_1202\male\CONTEMPT\male_CONTEMPT_low_20250327120930559.wav
+生成时间: 3.25 秒
+------------------------------
+性别: male, 情感: CONTEMPT, 音高: moderate
+文件: example\emotion_tests\20250327_1202\male\CONTEMPT\male_CONTEMPT_moderate_20250327120933809.wav
+生成时间: 3.44 秒
+------------------------------
+性别: male, 情感: CONTEMPT, 音高: high
+文件: example\emotion_tests\20250327_1202\male\CONTEMPT\male_CONTEMPT_high_20250327120937250.wav
+生成时间: 3.72 秒
+------------------------------
+性别: male, 情感: CONTEMPT, 音高: very_high
+文件: example\emotion_tests\20250327_1202\male\CONTEMPT\male_CONTEMPT_very_high_20250327120940969.wav
+生成时间: 3.64 秒
+------------------------------
+性别: female, 情感: UNKNOWN, 音高: very_low
+文件: example\emotion_tests\20250327_1202\female\UNKNOWN\female_UNKNOWN_very_low_20250327120944608.wav
+生成时间: 3.36 秒
+------------------------------
+性别: female, 情感: UNKNOWN, 音高: low
+文件: example\emotion_tests\20250327_1202\female\UNKNOWN\female_UNKNOWN_low_20250327120947966.wav
+生成时间: 3.47 秒
+------------------------------
+性别: female, 情感: UNKNOWN, 音高: moderate
+文件: example\emotion_tests\20250327_1202\female\UNKNOWN\female_UNKNOWN_moderate_20250327120951433.wav
+生成时间: 3.71 秒
+------------------------------
+性别: female, 情感: UNKNOWN, 音高: high
+文件: example\emotion_tests\20250327_1202\female\UNKNOWN\female_UNKNOWN_high_20250327120955141.wav
+生成时间: 3.98 秒
+------------------------------
+性别: female, 情感: UNKNOWN, 音高: very_high - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: female, 情感: NEUTRAL, 音高: very_low
+文件: example\emotion_tests\20250327_1202\female\NEUTRAL\female_NEUTRAL_very_low_20250327121002559.wav
+生成时间: 3.37 秒
+------------------------------
+性别: female, 情感: NEUTRAL, 音高: low
+文件: example\emotion_tests\20250327_1202\female\NEUTRAL\female_NEUTRAL_low_20250327121005932.wav
+生成时间: 3.46 秒
+------------------------------
+性别: female, 情感: NEUTRAL, 音高: moderate
+文件: example\emotion_tests\20250327_1202\female\NEUTRAL\female_NEUTRAL_moderate_20250327121009391.wav
+生成时间: 3.47 秒
+------------------------------
+性别: female, 情感: NEUTRAL, 音高: high
+文件: example\emotion_tests\20250327_1202\female\NEUTRAL\female_NEUTRAL_high_20250327121012866.wav
+生成时间: 3.64 秒
+------------------------------
+性别: female, 情感: NEUTRAL, 音高: very_high - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: female, 情感: ANGRY, 音高: very_low
+文件: example\emotion_tests\20250327_1202\female\ANGRY\female_ANGRY_very_low_20250327121019736.wav
+生成时间: 3.28 秒
+------------------------------
+性别: female, 情感: ANGRY, 音高: low
+文件: example\emotion_tests\20250327_1202\female\ANGRY\female_ANGRY_low_20250327121023015.wav
+生成时间: 3.42 秒
+------------------------------
+性别: female, 情感: ANGRY, 音高: moderate
+文件: example\emotion_tests\20250327_1202\female\ANGRY\female_ANGRY_moderate_20250327121026432.wav
+生成时间: 3.49 秒
+------------------------------
+性别: female, 情感: ANGRY, 音高: high
+文件: example\emotion_tests\20250327_1202\female\ANGRY\female_ANGRY_high_20250327121029918.wav
+生成时间: 3.63 秒
+------------------------------
+性别: female, 情感: ANGRY, 音高: very_high - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: female, 情感: HAPPY, 音高: very_low
+文件: example\emotion_tests\20250327_1202\female\HAPPY\female_HAPPY_very_low_20250327121036771.wav
+生成时间: 3.27 秒
+------------------------------
+性别: female, 情感: HAPPY, 音高: low
+文件: example\emotion_tests\20250327_1202\female\HAPPY\female_HAPPY_low_20250327121040040.wav
+生成时间: 3.39 秒
+------------------------------
+性别: female, 情感: HAPPY, 音高: moderate
+文件: example\emotion_tests\20250327_1202\female\HAPPY\female_HAPPY_moderate_20250327121043431.wav
+生成时间: 3.54 秒
+------------------------------
+性别: female, 情感: HAPPY, 音高: high
+文件: example\emotion_tests\20250327_1202\female\HAPPY\female_HAPPY_high_20250327121046973.wav
+生成时间: 3.66 秒
+------------------------------
+性别: female, 情感: HAPPY, 音高: very_high - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: female, 情感: SAD, 音高: very_low
+文件: example\emotion_tests\20250327_1202\female\SAD\female_SAD_very_low_20250327121053888.wav
+生成时间: 3.32 秒
+------------------------------
+性别: female, 情感: SAD, 音高: low
+文件: example\emotion_tests\20250327_1202\female\SAD\female_SAD_low_20250327121057206.wav
+生成时间: 3.53 秒
+------------------------------
+性别: female, 情感: SAD, 音高: moderate
+文件: example\emotion_tests\20250327_1202\female\SAD\female_SAD_moderate_20250327121100739.wav
+生成时间: 3.66 秒
+------------------------------
+性别: female, 情感: SAD, 音高: high
+文件: example\emotion_tests\20250327_1202\female\SAD\female_SAD_high_20250327121104397.wav
+生成时间: 3.78 秒
+------------------------------
+性别: female, 情感: SAD, 音高: very_high - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: female, 情感: FEARFUL, 音高: very_low
+文件: example\emotion_tests\20250327_1202\female\FEARFUL\female_FEARFUL_very_low_20250327121111565.wav
+生成时间: 3.37 秒
+------------------------------
+性别: female, 情感: FEARFUL, 音高: low
+文件: example\emotion_tests\20250327_1202\female\FEARFUL\female_FEARFUL_low_20250327121114930.wav
+生成时间: 3.43 秒
+------------------------------
+性别: female, 情感: FEARFUL, 音高: moderate
+文件: example\emotion_tests\20250327_1202\female\FEARFUL\female_FEARFUL_moderate_20250327121118363.wav
+生成时间: 3.53 秒
+------------------------------
+性别: female, 情感: FEARFUL, 音高: high
+文件: example\emotion_tests\20250327_1202\female\FEARFUL\female_FEARFUL_high_20250327121121896.wav
+生成时间: 3.76 秒
+------------------------------
+性别: female, 情感: FEARFUL, 音高: very_high - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: female, 情感: DISGUSTED, 音高: very_low
+文件: example\emotion_tests\20250327_1202\female\DISGUSTED\female_DISGUSTED_very_low_20250327121128914.wav
+生成时间: 3.39 秒
+------------------------------
+性别: female, 情感: DISGUSTED, 音高: low
+文件: example\emotion_tests\20250327_1202\female\DISGUSTED\female_DISGUSTED_low_20250327121132304.wav
+生成时间: 3.50 秒
+------------------------------
+性别: female, 情感: DISGUSTED, 音高: moderate
+文件: example\emotion_tests\20250327_1202\female\DISGUSTED\female_DISGUSTED_moderate_20250327121135801.wav
+生成时间: 3.51 秒
+------------------------------
+性别: female, 情感: DISGUSTED, 音高: high
+文件: example\emotion_tests\20250327_1202\female\DISGUSTED\female_DISGUSTED_high_20250327121139313.wav
+生成时间: 3.69 秒
+------------------------------
+性别: female, 情感: DISGUSTED, 音高: very_high - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: female, 情感: SURPRISED, 音高: very_low
+文件: example\emotion_tests\20250327_1202\female\SURPRISED\female_SURPRISED_very_low_20250327121146282.wav
+生成时间: 3.31 秒
+------------------------------
+性别: female, 情感: SURPRISED, 音高: low
+文件: example\emotion_tests\20250327_1202\female\SURPRISED\female_SURPRISED_low_20250327121149596.wav
+生成时间: 3.47 秒
+------------------------------
+性别: female, 情感: SURPRISED, 音高: moderate
+文件: example\emotion_tests\20250327_1202\female\SURPRISED\female_SURPRISED_moderate_20250327121153062.wav
+生成时间: 3.53 秒
+------------------------------
+性别: female, 情感: SURPRISED, 音高: high
+文件: example\emotion_tests\20250327_1202\female\SURPRISED\female_SURPRISED_high_20250327121156595.wav
+生成时间: 3.68 秒
+------------------------------
+性别: female, 情感: SURPRISED, 音高: very_high - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: female, 情感: SARCASTIC, 音高: very_low
+文件: example\emotion_tests\20250327_1202\female\SARCASTIC\female_SARCASTIC_very_low_20250327121203540.wav
+生成时间: 3.35 秒
+------------------------------
+性别: female, 情感: SARCASTIC, 音高: low
+文件: example\emotion_tests\20250327_1202\female\SARCASTIC\female_SARCASTIC_low_20250327121206887.wav
+生成时间: 3.48 秒
+------------------------------
+性别: female, 情感: SARCASTIC, 音高: moderate
+文件: example\emotion_tests\20250327_1202\female\SARCASTIC\female_SARCASTIC_moderate_20250327121210370.wav
+生成时间: 3.52 秒
+------------------------------
+性别: female, 情感: SARCASTIC, 音高: high
+文件: example\emotion_tests\20250327_1202\female\SARCASTIC\female_SARCASTIC_high_20250327121213886.wav
+生成时间: 3.73 秒
+------------------------------
+性别: female, 情感: SARCASTIC, 音高: very_high - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: female, 情感: EXCITED, 音高: very_low
+文件: example\emotion_tests\20250327_1202\female\EXCITED\female_EXCITED_very_low_20250327121220888.wav
+生成时间: 3.31 秒
+------------------------------
+性别: female, 情感: EXCITED, 音高: low
+文件: example\emotion_tests\20250327_1202\female\EXCITED\female_EXCITED_low_20250327121224195.wav
+生成时间: 3.47 秒
+------------------------------
+性别: female, 情感: EXCITED, 音高: moderate
+文件: example\emotion_tests\20250327_1202\female\EXCITED\female_EXCITED_moderate_20250327121227661.wav
+生成时间: 3.51 秒
+------------------------------
+性别: female, 情感: EXCITED, 音高: high
+文件: example\emotion_tests\20250327_1202\female\EXCITED\female_EXCITED_high_20250327121231169.wav
+生成时间: 3.64 秒
+------------------------------
+性别: female, 情感: EXCITED, 音高: very_high - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: female, 情感: SLEEPY, 音高: very_low
+文件: example\emotion_tests\20250327_1202\female\SLEEPY\female_SLEEPY_very_low_20250327121238047.wav
+生成时间: 3.32 秒
+------------------------------
+性别: female, 情感: SLEEPY, 音高: low
+文件: example\emotion_tests\20250327_1202\female\SLEEPY\female_SLEEPY_low_20250327121241369.wav
+生成时间: 3.43 秒
+------------------------------
+性别: female, 情感: SLEEPY, 音高: moderate
+文件: example\emotion_tests\20250327_1202\female\SLEEPY\female_SLEEPY_moderate_20250327121244802.wav
+生成时间: 3.54 秒
+------------------------------
+性别: female, 情感: SLEEPY, 音高: high
+文件: example\emotion_tests\20250327_1202\female\SLEEPY\female_SLEEPY_high_20250327121248338.wav
+生成时间: 3.71 秒
+------------------------------
+性别: female, 情感: SLEEPY, 音高: very_high - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: female, 情感: CONFUSED, 音高: very_low
+文件: example\emotion_tests\20250327_1202\female\CONFUSED\female_CONFUSED_very_low_20250327121255341.wav
+生成时间: 3.31 秒
+------------------------------
+性别: female, 情感: CONFUSED, 音高: low
+文件: example\emotion_tests\20250327_1202\female\CONFUSED\female_CONFUSED_low_20250327121258646.wav
+生成时间: 3.48 秒
+------------------------------
+性别: female, 情感: CONFUSED, 音高: moderate
+文件: example\emotion_tests\20250327_1202\female\CONFUSED\female_CONFUSED_moderate_20250327121302127.wav
+生成时间: 3.56 秒
+------------------------------
+性别: female, 情感: CONFUSED, 音高: high
+文件: example\emotion_tests\20250327_1202\female\CONFUSED\female_CONFUSED_high_20250327121305685.wav
+生成时间: 3.73 秒
+------------------------------
+性别: female, 情感: CONFUSED, 音高: very_high - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: female, 情感: EMPHASIS, 音高: very_low
+文件: example\emotion_tests\20250327_1202\female\EMPHASIS\female_EMPHASIS_very_low_20250327121312729.wav
+生成时间: 3.42 秒
+------------------------------
+性别: female, 情感: EMPHASIS, 音高: low
+文件: example\emotion_tests\20250327_1202\female\EMPHASIS\female_EMPHASIS_low_20250327121316151.wav
+生成时间: 3.52 秒
+------------------------------
+性别: female, 情感: EMPHASIS, 音高: moderate
+文件: example\emotion_tests\20250327_1202\female\EMPHASIS\female_EMPHASIS_moderate_20250327121319668.wav
+生成时间: 3.69 秒
+------------------------------
+性别: female, 情感: EMPHASIS, 音高: high
+文件: example\emotion_tests\20250327_1202\female\EMPHASIS\female_EMPHASIS_high_20250327121323359.wav
+生成时间: 3.82 秒
+------------------------------
+性别: female, 情感: EMPHASIS, 音高: very_high - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: female, 情感: LAUGHING, 音高: very_low
+文件: example\emotion_tests\20250327_1202\female\LAUGHING\female_LAUGHING_very_low_20250327121330535.wav
+生成时间: 3.48 秒
+------------------------------
+性别: female, 情感: LAUGHING, 音高: low
+文件: example\emotion_tests\20250327_1202\female\LAUGHING\female_LAUGHING_low_20250327121334018.wav
+生成时间: 3.57 秒
+------------------------------
+性别: female, 情感: LAUGHING, 音高: moderate
+文件: example\emotion_tests\20250327_1202\female\LAUGHING\female_LAUGHING_moderate_20250327121337584.wav
+生成时间: 3.72 秒
+------------------------------
+性别: female, 情感: LAUGHING, 音高: high
+文件: example\emotion_tests\20250327_1202\female\LAUGHING\female_LAUGHING_high_20250327121341304.wav
+生成时间: 3.81 秒
+------------------------------
+性别: female, 情感: LAUGHING, 音高: very_high - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: female, 情感: SINGING, 音高: very_low
+文件: example\emotion_tests\20250327_1202\female\SINGING\female_SINGING_very_low_20250327121348470.wav
+生成时间: 3.44 秒
+------------------------------
+性别: female, 情感: SINGING, 音高: low
+文件: example\emotion_tests\20250327_1202\female\SINGING\female_SINGING_low_20250327121351909.wav
+生成时间: 3.70 秒
+------------------------------
+性别: female, 情感: SINGING, 音高: moderate
+文件: example\emotion_tests\20250327_1202\female\SINGING\female_SINGING_moderate_20250327121355609.wav
+生成时间: 3.78 秒
+------------------------------
+性别: female, 情感: SINGING, 音高: high
+文件: example\emotion_tests\20250327_1202\female\SINGING\female_SINGING_high_20250327121359393.wav
+生成时间: 3.78 秒
+------------------------------
+性别: female, 情感: SINGING, 音高: very_high - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: female, 情感: WORRIED, 音高: very_low
+文件: example\emotion_tests\20250327_1202\female\WORRIED\female_WORRIED_very_low_20250327121406569.wav
+生成时间: 3.41 秒
+------------------------------
+性别: female, 情感: WORRIED, 音高: low
+文件: example\emotion_tests\20250327_1202\female\WORRIED\female_WORRIED_low_20250327121409977.wav
+生成时间: 3.48 秒
+------------------------------
+性别: female, 情感: WORRIED, 音高: moderate
+文件: example\emotion_tests\20250327_1202\female\WORRIED\female_WORRIED_moderate_20250327121413458.wav
+生成时间: 3.56 秒
+------------------------------
+性别: female, 情感: WORRIED, 音高: high
+文件: example\emotion_tests\20250327_1202\female\WORRIED\female_WORRIED_high_20250327121417016.wav
+生成时间: 3.73 秒
+------------------------------
+性别: female, 情感: WORRIED, 音高: very_high - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: female, 情感: WHISPER, 音高: very_low
+文件: example\emotion_tests\20250327_1202\female\WHISPER\female_WHISPER_very_low_20250327121424067.wav
+生成时间: 3.33 秒
+------------------------------
+性别: female, 情感: WHISPER, 音高: low
+文件: example\emotion_tests\20250327_1202\female\WHISPER\female_WHISPER_low_20250327121427399.wav
+生成时间: 3.53 秒
+------------------------------
+性别: female, 情感: WHISPER, 音高: moderate
+文件: example\emotion_tests\20250327_1202\female\WHISPER\female_WHISPER_moderate_20250327121430932.wav
+生成时间: 3.62 秒
+------------------------------
+性别: female, 情感: WHISPER, 音高: high
+文件: example\emotion_tests\20250327_1202\female\WHISPER\female_WHISPER_high_20250327121434549.wav
+生成时间: 3.73 秒
+------------------------------
+性别: female, 情感: WHISPER, 音高: very_high - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: female, 情感: ANXIOUS, 音高: very_low
+文件: example\emotion_tests\20250327_1202\female\ANXIOUS\female_ANXIOUS_very_low_20250327121441657.wav
+生成时间: 3.37 秒
+------------------------------
+性别: female, 情感: ANXIOUS, 音高: low
+文件: example\emotion_tests\20250327_1202\female\ANXIOUS\female_ANXIOUS_low_20250327121445032.wav
+生成时间: 3.47 秒
+------------------------------
+性别: female, 情感: ANXIOUS, 音高: moderate
+文件: example\emotion_tests\20250327_1202\female\ANXIOUS\female_ANXIOUS_moderate_20250327121448507.wav
+生成时间: 3.62 秒
+------------------------------
+性别: female, 情感: ANXIOUS, 音高: high
+文件: example\emotion_tests\20250327_1202\female\ANXIOUS\female_ANXIOUS_high_20250327121452123.wav
+生成时间: 3.72 秒
+------------------------------
+性别: female, 情感: ANXIOUS, 音高: very_high - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: female, 情感: NO-AGREEMENT, 音高: very_low
+文件: example\emotion_tests\20250327_1202\female\NO-AGREEMENT\female_NO-AGREEMENT_very_low_20250327121459122.wav
+生成时间: 3.35 秒
+------------------------------
+性别: female, 情感: NO-AGREEMENT, 音高: low
+文件: example\emotion_tests\20250327_1202\female\NO-AGREEMENT\female_NO-AGREEMENT_low_20250327121502473.wav
+生成时间: 3.53 秒
+------------------------------
+性别: female, 情感: NO-AGREEMENT, 音高: moderate
+文件: example\emotion_tests\20250327_1202\female\NO-AGREEMENT\female_NO-AGREEMENT_moderate_20250327121505998.wav
+生成时间: 3.71 秒
+------------------------------
+性别: female, 情感: NO-AGREEMENT, 音高: high
+文件: example\emotion_tests\20250327_1202\female\NO-AGREEMENT\female_NO-AGREEMENT_high_20250327121509707.wav
+生成时间: 3.73 秒
+------------------------------
+性别: female, 情感: NO-AGREEMENT, 音高: very_high - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: female, 情感: APOLOGETIC, 音高: very_low
+文件: example\emotion_tests\20250327_1202\female\APOLOGETIC\female_APOLOGETIC_very_low_20250327121516764.wav
+生成时间: 3.37 秒
+------------------------------
+性别: female, 情感: APOLOGETIC, 音高: low
+文件: example\emotion_tests\20250327_1202\female\APOLOGETIC\female_APOLOGETIC_low_20250327121520131.wav
+生成时间: 3.48 秒
+------------------------------
+性别: female, 情感: APOLOGETIC, 音高: moderate
+文件: example\emotion_tests\20250327_1202\female\APOLOGETIC\female_APOLOGETIC_moderate_20250327121523615.wav
+生成时间: 3.63 秒
+------------------------------
+性别: female, 情感: APOLOGETIC, 音高: high
+文件: example\emotion_tests\20250327_1202\female\APOLOGETIC\female_APOLOGETIC_high_20250327121527248.wav
+生成时间: 3.78 秒
+------------------------------
+性别: female, 情感: APOLOGETIC, 音高: very_high - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: female, 情感: CONCERNED, 音高: very_low
+文件: example\emotion_tests\20250327_1202\female\CONCERNED\female_CONCERNED_very_low_20250327121534420.wav
+生成时间: 3.43 秒
+------------------------------
+性别: female, 情感: CONCERNED, 音高: low
+文件: example\emotion_tests\20250327_1202\female\CONCERNED\female_CONCERNED_low_20250327121537846.wav
+生成时间: 3.69 秒
+------------------------------
+性别: female, 情感: CONCERNED, 音高: moderate
+文件: example\emotion_tests\20250327_1202\female\CONCERNED\female_CONCERNED_moderate_20250327121541539.wav
+生成时间: 3.81 秒
+------------------------------
+性别: female, 情感: CONCERNED, 音高: high
+文件: example\emotion_tests\20250327_1202\female\CONCERNED\female_CONCERNED_high_20250327121545347.wav
+生成时间: 3.79 秒
+------------------------------
+性别: female, 情感: CONCERNED, 音高: very_high - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: female, 情感: ENUNCIATED, 音高: very_low
+文件: example\emotion_tests\20250327_1202\female\ENUNCIATED\female_ENUNCIATED_very_low_20250327121552563.wav
+生成时间: 3.56 秒
+------------------------------
+性别: female, 情感: ENUNCIATED, 音高: low
+文件: example\emotion_tests\20250327_1202\female\ENUNCIATED\female_ENUNCIATED_low_20250327121556121.wav
+生成时间: 3.66 秒
+------------------------------
+性别: female, 情感: ENUNCIATED, 音高: moderate
+文件: example\emotion_tests\20250327_1202\female\ENUNCIATED\female_ENUNCIATED_moderate_20250327121559780.wav
+生成时间: 3.63 秒
+------------------------------
+性别: female, 情感: ENUNCIATED, 音高: high
+文件: example\emotion_tests\20250327_1202\female\ENUNCIATED\female_ENUNCIATED_high_20250327121603412.wav
+生成时间: 3.67 秒
+------------------------------
+性别: female, 情感: ENUNCIATED, 音高: very_high - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: female, 情感: ASSERTIVE, 音高: very_low
+文件: example\emotion_tests\20250327_1202\female\ASSERTIVE\female_ASSERTIVE_very_low_20250327121610415.wav
+生成时间: 3.35 秒
+------------------------------
+性别: female, 情感: ASSERTIVE, 音高: low
+文件: example\emotion_tests\20250327_1202\female\ASSERTIVE\female_ASSERTIVE_low_20250327121613763.wav
+生成时间: 3.49 秒
+------------------------------
+性别: female, 情感: ASSERTIVE, 音高: moderate
+文件: example\emotion_tests\20250327_1202\female\ASSERTIVE\female_ASSERTIVE_moderate_20250327121617254.wav
+生成时间: 3.57 秒
+------------------------------
+性别: female, 情感: ASSERTIVE, 音高: high
+文件: example\emotion_tests\20250327_1202\female\ASSERTIVE\female_ASSERTIVE_high_20250327121620826.wav
+生成时间: 3.69 秒
+------------------------------
+性别: female, 情感: ASSERTIVE, 音高: very_high - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: female, 情感: ENCOURAGING, 音高: very_low
+文件: example\emotion_tests\20250327_1202\female\ENCOURAGING\female_ENCOURAGING_very_low_20250327121627793.wav
+生成时间: 3.34 秒
+------------------------------
+性别: female, 情感: ENCOURAGING, 音高: low
+文件: example\emotion_tests\20250327_1202\female\ENCOURAGING\female_ENCOURAGING_low_20250327121631128.wav
+生成时间: 3.48 秒
+------------------------------
+性别: female, 情感: ENCOURAGING, 音高: moderate
+文件: example\emotion_tests\20250327_1202\female\ENCOURAGING\female_ENCOURAGING_moderate_20250327121634612.wav
+生成时间: 3.56 秒
+------------------------------
+性别: female, 情感: ENCOURAGING, 音高: high
+文件: example\emotion_tests\20250327_1202\female\ENCOURAGING\female_ENCOURAGING_high_20250327121638170.wav
+生成时间: 3.76 秒
+------------------------------
+性别: female, 情感: ENCOURAGING, 音高: very_high - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
+性别: female, 情感: CONTEMPT, 音高: very_low
+文件: example\emotion_tests\20250327_1202\female\CONTEMPT\female_CONTEMPT_very_low_20250327121645344.wav
+生成时间: 3.38 秒
+------------------------------
+性别: female, 情感: CONTEMPT, 音高: low
+文件: example\emotion_tests\20250327_1202\female\CONTEMPT\female_CONTEMPT_low_20250327121648719.wav
+生成时间: 3.52 秒
+------------------------------
+性别: female, 情感: CONTEMPT, 音高: moderate
+文件: example\emotion_tests\20250327_1202\female\CONTEMPT\female_CONTEMPT_moderate_20250327121652244.wav
+生成时间: 3.80 秒
+------------------------------
+性别: female, 情感: CONTEMPT, 音高: high
+文件: example\emotion_tests\20250327_1202\female\CONTEMPT\female_CONTEMPT_high_20250327121656047.wav
+生成时间: 3.80 秒
+------------------------------
+性别: female, 情感: CONTEMPT, 音高: very_high - 生成失败
+错误: Failed to solve values of expressions. Axis 'n' has value 0 <= 0
+Input:
+    'q [c] d = 1 4096 6'
+    'b n q = 1 0 1'
+    'q b n d = None'
+    '1 = 1'
+
+------------------------------
