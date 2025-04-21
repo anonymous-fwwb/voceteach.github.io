@@ -1,0 +1,9 @@
+.audio-player {
+    display: flex;
+    align-items: center;
+}
+
+.audio-player audio {
+    width: 150px;
+    height: 30px;
+}
