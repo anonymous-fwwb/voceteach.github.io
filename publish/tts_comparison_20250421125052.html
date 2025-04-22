@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TTS Comparison</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .audio-player {
+            display: flex;
+            align-items: center;
+        }
+
+        .audio-player audio {
+            width: 150px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="max-w-6xl mx-auto p-4">
+        <h1 class="text-3xl font-bold text-center my-6">TTS 比较展示</h1>
+        <div class="text-sm text-gray-500 text-center mb-6">发布于: 2025-04-21 12:50:52</div>
+
+        <div class="bg-white shadow-md rounded-lg overflow-hidden">
+            <div class="grid grid-cols-4 bg-blue-100 p-4">
+                <div class="font-bold">Speaker</div>
+                <div class="font-bold">Prompt</div>
+                <div class="font-bold">Text</div>
+                <div class="font-bold">My TTS</div>
+            </div>
+
+            
+            <div class="grid grid-cols-4 border-b p-4 items-center">
+                <div>Speaker-1</div>
+                <div class="flex justify-center">
+                    
+                    No prompt
+                    
+                </div>
+                <div class="text-center px-4 text-sm">
+                    Old will is a fine fellow but poor and helpless since missus rogers had her accident.
+                </div>
+                <div class="flex justify-center">
+                    
+                    <div class="audio-player">
+                        <audio controls src="/static/audio/tts/speaker1.mp3"></audio>
+                        <span class="text-xs text-gray-700 ml-2">0:05</span>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-4 border-b p-4 items-center">
+                <div>标准语音</div>
+                <div class="flex justify-center">
+                    
+                    No prompt
+                    
+                </div>
+                <div class="text-center px-4 text-sm">
+                    就这？笑死我了哈哈哈哈哈
+                </div>
+                <div class="flex justify-center">
+                    
+                    <div class="audio-player">
+                        <audio controls src="/static/audio/tts/speech_1745209377436.wav"></audio>
+                        <span class="text-xs text-gray-700 ml-2">0:00</span>
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="text-center mt-6 text-sm text-gray-500">
+            <p>此页面为TTS比较的静态展示页面，仅供参考。</p>
+        </div>
+    </div>
+</body>
+</html>
