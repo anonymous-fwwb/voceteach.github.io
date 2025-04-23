@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify, send_from_directory
+from flask import Flask, render_template, request, jsonify, send_from_directory, redirect, url_for
 import os
 import json
 from werkzeug.utils import secure_filename
@@ -16,54 +16,156 @@ os.makedirs(os.path.join(app.config['AUDIO_FOLDER'], 'prompts'), exist_ok=True)
 os.makedirs(os.path.join(app.config['AUDIO_FOLDER'], 'tts'), exist_ok=True)
 os.makedirs(app.config['PUBLISH_FOLDER'], exist_ok=True)
 
-# 存储比较数据的文件
-SPEAKERS_FILE = 'static/data/speakers.json'
-os.makedirs(os.path.dirname(SPEAKERS_FILE), exist_ok=True)
+# 存储表格数据的文件
+TABLES_FILE = 'static/data/tables.json'
+os.makedirs(os.path.dirname(TABLES_FILE), exist_ok=True)
 
-# 初始化示例数据
-if not os.path.exists(SPEAKERS_FILE):
-    with open(SPEAKERS_FILE, 'w', encoding='utf-8') as f:
+# 初始化表格数据
+if not os.path.exists(TABLES_FILE):
+    with open(TABLES_FILE, 'w', encoding='utf-8') as f:
         json.dump([
             {
                 "id": 1,
-                "name": "Speaker-1",
-                "promptType": "audio",  # audio 或 text
-                "promptAudio": "/static/audio/prompts/speaker1.mp3",
-                "promptText": "",  # 如果是文字描述,则这里有内容
-                "text": "Old will is a fine fellow but poor and helpless since missus rogers had her accident.",
-                "audioLength": "0:04",
-                "indexTTS": "0:05",
-                "indexTTSPath": "/static/audio/tts/speaker1.mp3"
-            },
-            {
-                "id": 2,
-                "name": "Speaker-2",
-                "promptType": "text",  # 这个示例用文字描述
-                "promptAudio": "",
-                "promptText": "一个温柔的女声，语速中等，有轻微法国口音",
-                "text": "Silvia was the adoration of france and her talent was the real support of all the comedies.",
-                "audioLength": "",
-                "indexTTS": "0:14",
-                "indexTTSPath": "/static/audio/tts/speaker2.mp3"
+                "name": "标准语音",
+                "description": "这是默认的TTS比较表格",
+                "created_at": datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
             }
         ], f, ensure_ascii=False)
 
 
+# 获取存储speakers的文件路径
+def get_speakers_file(table_id):
+    return f'static/data/speakers_{table_id}.json'
+
+
+# 初始化示例数据
+def init_speakers_data(table_id):
+    speakers_file = get_speakers_file(table_id)
+    if not os.path.exists(speakers_file):
+        with open(speakers_file, 'w', encoding='utf-8') as f:
+            json.dump([
+                {
+                    "id": 1,
+                    "name": "Speaker-1",
+                    "promptType": "audio",
+                    "promptAudio": "/static/audio/prompts/speaker1.mp3",
+                    "promptText": "",
+                    "text": "Old will is a fine fellow but poor and helpless since missus rogers had her accident.",
+                    "indexTTSPath": "/static/audio/tts/speaker1.mp3"
+                }
+            ], f, ensure_ascii=False)
+
+
+# 初始化第一个表格的数据
+init_speakers_data(1)
+
+
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return redirect(url_for('table_view', table_id=1))
 
 
-@app.route('/api/speakers', methods=['GET'])
-def get_speakers():
-    with open(SPEAKERS_FILE, 'r', encoding='utf-8') as f:
+@app.route('/table/<int:table_id>')
+def table_view(table_id):
+    # 确保表格存在
+    with open(TABLES_FILE, 'r', encoding='utf-8') as f:
+        tables = json.load(f)
+
+    table = next((t for t in tables if t['id'] == table_id), None)
+    if not table:
+        # 如果表格不存在，重定向到第一个表格
+        return redirect(url_for('index'))
+
+    # 初始化表格数据（如果不存在）
+    init_speakers_data(table_id)
+
+    return render_template('index.html', current_table_id=table_id, tables=tables)
+
+
+@app.route('/api/tables', methods=['GET'])
+def get_tables():
+    with open(TABLES_FILE, 'r', encoding='utf-8') as f:
         return jsonify(json.load(f))
 
 
-@app.route('/api/speakers', methods=['POST'])
-def add_speaker():
+@app.route('/api/tables', methods=['POST'])
+def create_table():
     data = request.get_json()
-    with open(SPEAKERS_FILE, 'r', encoding='utf-8') as f:
+
+    if not data.get('name'):
+        return jsonify({'error': 'Table name is required'}), 400
+
+    with open(TABLES_FILE, 'r', encoding='utf-8') as f:
+        tables = json.load(f)
+
+    # 创建新表格
+    new_id = max([t['id'] for t in tables], default=0) + 1
+    new_table = {
+        "id": new_id,
+        "name": data['name'],
+        "description": data.get('description', ''),
+        "created_at": datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    }
+
+    tables.append(new_table)
+
+    with open(TABLES_FILE, 'w', encoding='utf-8') as f:
+        json.dump(tables, f, ensure_ascii=False)
+
+    # 初始化新表格的speakers数据
+    init_speakers_data(new_id)
+
+    return jsonify(new_table), 201
+
+
+@app.route('/api/tables/<int:table_id>', methods=['DELETE'])
+def delete_table(table_id):
+    # 不允许删除ID为1的默认表格
+    if table_id == 1:
+        return jsonify({'error': 'Cannot delete the default table'}), 403
+
+    with open(TABLES_FILE, 'r', encoding='utf-8') as f:
+        tables = json.load(f)
+
+    # 查找要删除的表格
+    for i, table in enumerate(tables):
+        if table['id'] == table_id:
+            del tables[i]
+            break
+    else:
+        return jsonify({'error': 'Table not found'}), 404
+
+    with open(TABLES_FILE, 'w', encoding='utf-8') as f:
+        json.dump(tables, f, ensure_ascii=False)
+
+    # 删除相关的speakers数据文件
+    speakers_file = get_speakers_file(table_id)
+    if os.path.exists(speakers_file):
+        os.remove(speakers_file)
+
+    return jsonify({'success': True})
+
+
+@app.route('/api/tables/<int:table_id>/speakers', methods=['GET'])
+def get_table_speakers(table_id):
+    speakers_file = get_speakers_file(table_id)
+
+    # 确保数据文件存在
+    init_speakers_data(table_id)
+
+    with open(speakers_file, 'r', encoding='utf-8') as f:
+        return jsonify(json.load(f))
+
+
+@app.route('/api/tables/<int:table_id>/speakers', methods=['POST'])
+def add_table_speaker(table_id):
+    speakers_file = get_speakers_file(table_id)
+
+    # 确保数据文件存在
+    init_speakers_data(table_id)
+
+    data = request.get_json()
+    with open(speakers_file, 'r', encoding='utf-8') as f:
         speakers = json.load(f)
 
     # 给新speaker分配ID
@@ -72,16 +174,21 @@ def add_speaker():
 
     speakers.append(data)
 
-    with open(SPEAKERS_FILE, 'w', encoding='utf-8') as f:
+    with open(speakers_file, 'w', encoding='utf-8') as f:
         json.dump(speakers, f, ensure_ascii=False)
 
     return jsonify(data), 201
 
 
-@app.route('/api/speakers/<int:speaker_id>', methods=['PUT'])
-def update_speaker(speaker_id):
+@app.route('/api/tables/<int:table_id>/speakers/<int:speaker_id>', methods=['PUT'])
+def update_table_speaker(table_id, speaker_id):
+    speakers_file = get_speakers_file(table_id)
+
+    # 确保数据文件存在
+    init_speakers_data(table_id)
+
     data = request.get_json()
-    with open(SPEAKERS_FILE, 'r', encoding='utf-8') as f:
+    with open(speakers_file, 'r', encoding='utf-8') as f:
         speakers = json.load(f)
 
     # 查找要编辑的speaker
@@ -94,15 +201,20 @@ def update_speaker(speaker_id):
     else:
         return jsonify({'error': 'Speaker not found'}), 404
 
-    with open(SPEAKERS_FILE, 'w', encoding='utf-8') as f:
+    with open(speakers_file, 'w', encoding='utf-8') as f:
         json.dump(speakers, f, ensure_ascii=False)
 
     return jsonify(data)
 
 
-@app.route('/api/speakers/<int:speaker_id>', methods=['DELETE'])
-def delete_speaker(speaker_id):
-    with open(SPEAKERS_FILE, 'r', encoding='utf-8') as f:
+@app.route('/api/tables/<int:table_id>/speakers/<int:speaker_id>', methods=['DELETE'])
+def delete_table_speaker(table_id, speaker_id):
+    speakers_file = get_speakers_file(table_id)
+
+    # 确保数据文件存在
+    init_speakers_data(table_id)
+
+    with open(speakers_file, 'r', encoding='utf-8') as f:
         speakers = json.load(f)
 
     # 查找要删除的speaker
@@ -113,7 +225,7 @@ def delete_speaker(speaker_id):
     else:
         return jsonify({'error': 'Speaker not found'}), 404
 
-    with open(SPEAKERS_FILE, 'w', encoding='utf-8') as f:
+    with open(speakers_file, 'w', encoding='utf-8') as f:
         json.dump(speakers, f, ensure_ascii=False)
 
     return jsonify({'success': True})
@@ -133,37 +245,51 @@ def upload_audio():
     if audio_type not in ['prompts', 'tts']:
         audio_type = 'prompts'
 
+    # 为文件名添加时间戳前缀以确保唯一性
     filename = secure_filename(file.filename)
-    save_path = os.path.join(app.config['AUDIO_FOLDER'], audio_type, filename)
+    timestamp = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
+    unique_filename = f"{timestamp}_{filename}"
+
+    save_path = os.path.join(app.config['AUDIO_FOLDER'], audio_type, unique_filename)
     file.save(save_path)
 
     # 返回可访问的URL路径
-    url_path = f"/static/audio/{audio_type}/{filename}"
+    url_path = f"/static/audio/{audio_type}/{unique_filename}"
 
     return jsonify({
         'success': True,
         'path': url_path,
-        'filename': filename
+        'filename': unique_filename
     })
 
 
-@app.route('/api/publish', methods=['POST'])
-def publish_page():
+@app.route('/api/tables/<int:table_id>/publish', methods=['POST'])
+def publish_table(table_id):
     """创建一个静态的展示页面"""
     try:
-        # 获取当前所有speaker数据
-        with open(SPEAKERS_FILE, 'r', encoding='utf-8') as f:
+        # 获取表格信息
+        with open(TABLES_FILE, 'r', encoding='utf-8') as f:
+            tables = json.load(f)
+
+        table = next((t for t in tables if t['id'] == table_id), None)
+        if not table:
+            return jsonify({'error': 'Table not found'}), 404
+
+        # 获取当前表格的speakers数据
+        speakers_file = get_speakers_file(table_id)
+        with open(speakers_file, 'r', encoding='utf-8') as f:
             speakers = json.load(f)
 
         # 生成一个唯一的文件名 (使用时间戳)
         timestamp = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
-        filename = f"tts_comparison_{timestamp}.html"
+        filename = f"tts_comparison_{table_id}.html"
         filepath = os.path.join(app.config['PUBLISH_FOLDER'], filename)
 
         # 渲染静态页面
         page_content = render_template('publish_template.html',
                                        speakers=speakers,
-                                       title="TTS Comparison",
+                                       title=f"TTS Comparison - {table['name']}",
+                                       table=table,
                                        timestamp=datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
 
         # 写入文件

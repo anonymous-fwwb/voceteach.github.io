@@ -1,10 +1,18 @@
-// 全局变量，用于存储当前正在编辑的speaker数据
+// 全局变量
 let currentEditId = null;
 let speakersData = [];
 let deleteId = null;
+let currentTableId = null;
+let tablesData = [];
 
 document.addEventListener('DOMContentLoaded', function() {
-    // 加载所有speaker数据
+    // 获取当前表格ID
+    currentTableId = document.getElementById('tableId').value;
+
+    // 加载所有表格
+    loadTables();
+
+    // 加载当前表格的speaker数据
     loadSpeakers();
 
     // 添加表单提交事件处理
@@ -27,7 +35,74 @@ document.addEventListener('DOMContentLoaded', function() {
     // 设置删除模态框事件
     document.getElementById('cancel-delete').addEventListener('click', hideDeleteModal);
     document.getElementById('confirm-delete').addEventListener('click', confirmDeleteSpeaker);
+
+    // 新表格按钮事件
+    document.getElementById('new-table-btn').addEventListener('click', showNewTableModal);
+    document.getElementById('cancel-new-table').addEventListener('click', hideNewTableModal);
+    document.getElementById('new-table-form').addEventListener('submit', createNewTable);
+
+    // 删除表格按钮事件
+    document.getElementById('delete-table-btn').addEventListener('click', showDeleteTableModal);
+    document.getElementById('cancel-delete-table').addEventListener('click', hideDeleteTableModal);
+    document.getElementById('confirm-delete-table').addEventListener('click', confirmDeleteTable);
 });
+
+// 加载所有表格
+async function loadTables() {
+    try {
+        const response = await fetch('/api/tables');
+        tablesData = await response.json();
+
+        renderTables();
+    } catch (err) {
+        console.error('Error loading tables:', err);
+        document.getElementById('tables-list').innerHTML =
+            '<div class="text-center p-4 text-red-500 w-full">Failed to load tables</div>';
+    }
+}
+
+// 渲染表格列表
+function renderTables() {
+    const container = document.getElementById('tables-list');
+
+    if (tablesData.length === 0) {
+        container.innerHTML = '<div class="text-center p-4 w-full">No tables found.</div>';
+        return;
+    }
+
+    let html = '';
+    tablesData.forEach(table => {
+        const isActive = table.id == currentTableId;
+        html += `
+        <a
+            href="/table/${table.id}"
+            class="px-4 py-2 rounded-md ${isActive ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800 hover:bg-gray-300'}"
+        >
+            ${table.name}
+        </a>
+        `;
+    });
+
+    container.innerHTML = html;
+
+    // 更新当前表格名称
+    const currentTable = tablesData.find(t => t.id == currentTableId);
+    if (currentTable) {
+        document.getElementById('current-table-name').textContent = currentTable.name;
+    }
+
+    // 如果是默认表格（ID为1），禁用删除按钮
+    const deleteTableBtn = document.getElementById('delete-table-btn');
+    if (currentTableId == 1) {
+        deleteTableBtn.disabled = true;
+        deleteTableBtn.classList.add('opacity-50', 'cursor-not-allowed');
+        deleteTableBtn.title = '默认表格不能删除';
+    } else {
+        deleteTableBtn.disabled = false;
+        deleteTableBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+        deleteTableBtn.title = '';
+    }
+}
 
 // 切换提示输入方式
 function togglePromptInputs(type) {
@@ -38,15 +113,15 @@ function togglePromptInputs(type) {
         audioDiv.style.display = 'block';
         textDiv.style.display = 'none';
     } else {
-        audioDiv.style.display = 'none';
+audioDiv.style.display = 'none';
         textDiv.style.display = 'block';
     }
 }
 
-// 加载所有speaker数据
+// 加载当前表格的speaker数据
 async function loadSpeakers() {
     try {
-        const response = await fetch('/api/speakers');
+        const response = await fetch(`/api/tables/${currentTableId}/speakers`);
         speakersData = await response.json();
 
         renderSpeakers(speakersData);
@@ -70,7 +145,7 @@ function renderSpeakers(speakers) {
     speakers.forEach(speaker => {
         html += `
         <div class="grid grid-cols-5 border-b p-4 items-center">
-            <div>${speaker.name}</div>
+            <div class="text-center">${speaker.name}</div>
             <div class="flex justify-center">
                 ${renderPrompt(speaker)}
             </div>
@@ -78,7 +153,7 @@ function renderSpeakers(speakers) {
                 ${speaker.text}
             </div>
             <div class="flex justify-center">
-                ${speaker.indexTTSPath ? renderAudioPlayer(speaker.indexTTSPath, speaker.indexTTS) : 'No TTS audio'}
+                ${speaker.indexTTSPath ? renderAudioPlayer(speaker.indexTTSPath) : 'No TTS audio'}
             </div>
             <div class="flex justify-center space-x-2">
                 <button
@@ -104,7 +179,7 @@ function renderSpeakers(speakers) {
 // 渲染提示（可以是音频或文字）
 function renderPrompt(speaker) {
     if (speaker.promptType === 'audio' && speaker.promptAudio) {
-        return renderAudioPlayer(speaker.promptAudio, speaker.audioLength);
+        return renderAudioPlayer(speaker.promptAudio);
     } else if (speaker.promptType === 'text' && speaker.promptText) {
         return `<div class="text-center italic">"${speaker.promptText}"</div>`;
     } else {
@@ -112,12 +187,11 @@ function renderPrompt(speaker) {
     }
 }
 
-// 渲染音频播放器
-function renderAudioPlayer(audioSrc, length) {
+// 渲染音频播放器 (不显示秒数)
+function renderAudioPlayer(audioSrc) {
     return `
     <div class="audio-player">
         <audio controls src="${audioSrc}"></audio>
-        <span class="text-xs text-gray-700 ml-2">${length || '0:00'}</span>
     </div>
     `;
 }
@@ -135,96 +209,96 @@ async function handleSpeakerFormSubmit(e) {
     // 判断是添加还是编辑
     const isEditing = speakerId !== '';
 
-    // 初始化speaker数据
-    let speakerData = {
-        name: speakerName,
-        promptType: promptType,
-        text: textContent
-    };
+    let speakerData = {};
 
-    // 如果是编辑模式，需要保留原有数据
     if (isEditing) {
+        // 编辑模式 - 找到原始数据
         const originalSpeaker = speakersData.find(s => s.id == speakerId);
-        if (originalSpeaker) {
-            speakerData = {
-                ...originalSpeaker,
-                name: speakerName,
-                promptType: promptType,
-                text: textContent
-            };
+        if (!originalSpeaker) {
+            alert('找不到要编辑的数据！');
+            return;
+        }
 
-            // 根据提示类型处理不同的输入
+        // 复制原始数据，只更新要修改的字段
+        speakerData = { ...originalSpeaker };
+        speakerData.name = speakerName;
+        speakerData.text = textContent;
+
+        // 处理提示类型变更
+        if (promptType !== originalSpeaker.promptType) {
+            speakerData.promptType = promptType;
+
             if (promptType === 'audio') {
-                if (form.promptAudio.files.length > 0) {
-                    const promptUploadResult = await uploadAudio(form.promptAudio.files[0], 'prompts');
-                    if (promptUploadResult) {
-                        speakerData.promptAudio = promptUploadResult.path;
-                        // 这里可以添加获取音频长度的逻辑
-                        speakerData.audioLength = '0:05'; // 示例长度，实际应测量
-                    }
-                    speakerData.promptText = ''; // 清除文字描述
-                }
-                // 如果没有上传新文件，保留原来的音频
+                // 从文本切换到音频
+                speakerData.promptText = '';
+                // 音频文件将在后续处理，如果有上传的话
             } else {
+                // 从音频切换到文本
+                speakerData.promptAudio = '';
                 speakerData.promptText = form.promptText.value;
-                // 如果切换了类型，需要清除音频
-                if (originalSpeaker.promptType !== promptType) {
-                    speakerData.promptAudio = '';
-                    speakerData.audioLength = '0:00';
-                }
             }
+        } else {
+            // 类型未变，但内容可能变了
+            if (promptType === 'text') {
+                speakerData.promptText = form.promptText.value;
+            }
+            // 如果是音频类型，新上传的文件会在下面处理
+        }
 
-            // 上传TTS音频（如果有）
-            if (form.ttsAudio.files.length > 0) {
-                const ttsUploadResult = await uploadAudio(form.ttsAudio.files[0], 'tts');
-                if (ttsUploadResult) {
-                    speakerData.indexTTSPath = ttsUploadResult.path;
-                    // 这里可以添加获取音频长度的逻辑
-                    speakerData.indexTTS = '0:05'; // 示例长度，实际应测量
-                }
+        // 处理上传的提示音频（如果有）
+        if (promptType === 'audio' && form.promptAudio.files.length > 0) {
+            const promptUploadResult = await uploadAudio(form.promptAudio.files[0], 'prompts');
+            if (promptUploadResult) {
+                speakerData.promptAudio = promptUploadResult.path;
             }
-            // 如果没有上传新TTS文件，保留原来的TTS音频
+        }
+
+        // 处理上传的TTS音频（如果有）
+        if (form.ttsAudio.files.length > 0) {
+            const ttsUploadResult = await uploadAudio(form.ttsAudio.files[0], 'tts');
+            if (ttsUploadResult) {
+                speakerData.indexTTSPath = ttsUploadResult.path;
+            }
         }
     } else {
-        // 添加模式
-        speakerData.promptAudio = '';
-        speakerData.promptText = '';
-        speakerData.audioLength = '0:00';
-        speakerData.indexTTS = '0:00';
-        speakerData.indexTTSPath = '';
+        // 添加模式 - 创建新数据
+        speakerData = {
+            name: speakerName,
+            promptType: promptType,
+            text: textContent,
+            promptAudio: '',
+            promptText: '',
+            indexTTSPath: ''
+        };
 
-        // 根据提示类型处理不同的输入
+        // 处理提示类型
         if (promptType === 'audio') {
             if (form.promptAudio.files.length > 0) {
                 const promptUploadResult = await uploadAudio(form.promptAudio.files[0], 'prompts');
                 if (promptUploadResult) {
                     speakerData.promptAudio = promptUploadResult.path;
-                    // 这里可以添加获取音频长度的逻辑
-                    speakerData.audioLength = '0:05'; // 示例长度，实际应测量
                 }
             }
         } else {
             speakerData.promptText = form.promptText.value;
         }
 
-        // 上传TTS音频（如果有）
+        // 处理TTS音频
         if (form.ttsAudio.files.length > 0) {
             const ttsUploadResult = await uploadAudio(form.ttsAudio.files[0], 'tts');
             if (ttsUploadResult) {
                 speakerData.indexTTSPath = ttsUploadResult.path;
-                // 这里可以添加获取音频长度的逻辑
-                speakerData.indexTTS = '0:05'; // 示例长度，实际应测量
             }
         }
     }
 
     // 发送到服务器
     try {
-        let url = '/api/speakers';
+        let url = `/api/tables/${currentTableId}/speakers`;
         let method = 'POST';
 
         if (isEditing) {
-            url = `/api/speakers/${speakerId}`;
+            url = `/api/tables/${currentTableId}/speakers/${speakerId}`;
             method = 'PUT';
         }
 
@@ -333,7 +407,7 @@ async function confirmDeleteSpeaker() {
     if (deleteId === null) return;
 
     try {
-        const response = await fetch(`/api/speakers/${deleteId}`, {
+        const response = await fetch(`/api/tables/${currentTableId}/speakers/${deleteId}`, {
             method: 'DELETE'
         });
 
@@ -389,7 +463,7 @@ async function handlePublish() {
         publishBtn.textContent = '正在发布...';
 
         // 调用发布API
-        const response = await fetch('/api/publish', {
+        const response = await fetch(`/api/tables/${currentTableId}/publish`, {
             method: 'POST'
         });
 
@@ -429,3 +503,101 @@ async function handlePublish() {
         publishBtn.textContent = '发布展示页面';
     }
 }
+
+// 显示新表格创建模态框
+function showNewTableModal() {
+    document.getElementById('new-table-modal').classList.remove('hidden');
+    document.getElementById('table-name').focus();
+}
+
+// 隐藏新表格创建模态框
+function hideNewTableModal() {
+    document.getElementById('new-table-modal').classList.add('hidden');
+    document.getElementById('new-table-form').reset();
+}
+
+// 创建新表格
+async function createNewTable(e) {
+    e.preventDefault();
+
+    const tableName = document.getElementById('table-name').value.trim();
+    const tableDescription = document.getElementById('table-description').value.trim();
+
+    if (!tableName) {
+        alert('表格名称不能为空');
+        return;
+    }
+
+    try {
+        const response = await fetch('/api/tables', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: tableName,
+                description: tableDescription
+            })
+        });
+
+        if (response.ok) {
+            const newTable = await response.json();
+            // 重定向到新表格页面
+            window.location.href = `/table/${newTable.id}`;
+        } else {
+            alert('创建表格失败');
+        }
+    } catch (err) {
+        console.error('Error creating table:', err);
+        alert('创建表格失败: ' + err.message);
+    }
+
+    // 关闭模态框
+    hideNewTableModal();
+}
+
+// 显示删除表格确认模态框
+function showDeleteTableModal() {
+    // 不允许删除默认表格
+    if (currentTableId == 1) {
+        alert('默认表格不能删除');
+        return;
+    }
+
+    document.getElementById('delete-table-modal').classList.remove('hidden');
+}
+
+// 隐藏删除表格确认模态框
+function hideDeleteTableModal() {
+    document.getElementById('delete-table-modal').classList.add('hidden');
+}
+
+// 确认删除表格
+async function confirmDeleteTable() {
+    // 不允许删除默认表格
+    if (currentTableId == 1) {
+        alert('默认表格不能删除');
+        hideDeleteTableModal();
+        return;
+    }
+
+    try {
+        const response = await fetch(`/api/tables/${currentTableId}`, {
+            method: 'DELETE'
+        });
+
+        if (response.ok) {
+            // 删除成功，重定向到默认表格
+            window.location.href = '/table/1';
+        } else {
+            alert('删除表格失败');
+        }
+    } catch (err) {
+        console.error('Error deleting table:', err);
+        alert('删除表格失败: ' + err.message);
+    }
+
+    // 隐藏模态框
+    hideDeleteTableModal();
+}
+

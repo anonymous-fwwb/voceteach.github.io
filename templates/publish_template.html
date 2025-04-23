@@ -19,25 +19,27 @@
 </head>
 <body class="bg-gray-100">
     <div class="max-w-6xl mx-auto p-4">
-        <h1 class="text-3xl font-bold text-center my-6">TTS 比较展示</h1>
+        <h1 class="text-3xl font-bold text-center my-6">{{ table.name }} - TTS 比较展示</h1>
+        {% if table.description %}
+        <p class="text-center text-gray-600 mb-4">{{ table.description }}</p>
+        {% endif %}
         <div class="text-sm text-gray-500 text-center mb-6">发布于: {{ timestamp }}</div>
 
         <div class="bg-white shadow-md rounded-lg overflow-hidden">
             <div class="grid grid-cols-4 bg-blue-100 p-4">
-                <div class="font-bold">Speaker</div>
-                <div class="font-bold">Prompt</div>
-                <div class="font-bold">Text</div>
-                <div class="font-bold">My TTS</div>
+                <div class="font-bold text-center">Speaker</div>
+                <div class="font-bold text-center">Prompt</div>
+                <div class="font-bold text-center">Text</div>
+                <div class="font-bold text-center">My TTS</div>
             </div>
 
             {% for speaker in speakers %}
             <div class="grid grid-cols-4 border-b p-4 items-center">
-                <div>{{ speaker.name }}</div>
+                <div class="text-center">{{ speaker.name }}</div>
                 <div class="flex justify-center">
                     {% if speaker.promptType == 'audio' and speaker.promptAudio %}
                     <div class="audio-player">
                         <audio controls src="{{ speaker.promptAudio }}"></audio>
-                        <span class="text-xs text-gray-700 ml-2">{{ speaker.audioLength or '0:00' }}</span>
                     </div>
                     {% elif speaker.promptType == 'text' and speaker.promptText %}
                     <div class="text-center italic">"{{ speaker.promptText }}"</div>
@@ -52,7 +54,6 @@
                     {% if speaker.indexTTSPath %}
                     <div class="audio-player">
                         <audio controls src="{{ speaker.indexTTSPath }}"></audio>
-                        <span class="text-xs text-gray-700 ml-2">{{ speaker.indexTTS or '0:00' }}</span>
                     </div>
                     {% else %}
                     No TTS audio

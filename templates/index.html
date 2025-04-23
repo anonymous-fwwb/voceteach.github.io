@@ -11,14 +11,43 @@
     <div id="app" class="max-w-6xl mx-auto p-4">
         <h1 class="text-3xl font-bold text-center my-6">我的 TTS 比较工具</h1>
 
-        <!-- 添加发布按钮 -->
-        <div class="flex justify-end mb-4">
-            <button
-                id="publish-btn"
-                class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600"
-            >
-                发布展示页面
-            </button>
+        <!-- 表格导航栏 -->
+        <div class="mb-6">
+            <div class="flex justify-between items-center mb-2">
+                <h2 class="text-xl font-bold">表格列表</h2>
+                <button
+                    id="new-table-btn"
+                    class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+                >
+                    创建新表格
+                </button>
+            </div>
+            <div class="bg-white shadow-md rounded-lg p-3 flex flex-wrap gap-2" id="tables-list">
+                <!-- 表格选项卡将通过JavaScript加载 -->
+                <div class="text-center p-4 w-full">Loading tables...</div>
+            </div>
+        </div>
+
+        <!-- 当前表格标题 -->
+        <div class="flex justify-between items-center mb-4">
+            <h2 class="text-xl font-bold" id="current-table-name">表格名称</h2>
+
+            <div class="flex space-x-2">
+                <!-- 表格操作按钮 -->
+                <button
+                    id="publish-btn"
+                    class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600"
+                >
+                    发布展示页面
+                </button>
+                <button
+                    id="delete-table-btn"
+                    class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600"
+                    data-table-id="{{ current_table_id }}"
+                >
+                    删除表格
+                </button>
+            </div>
         </div>
 
         <!-- 发布成功的提示框 (默认隐藏) -->
@@ -30,12 +59,13 @@
             <p class="mt-2">访问链接: <a id="publish-link" href="#" target="_blank" class="text-blue-500 underline"></a></p>
         </div>
 
+        <!-- 音频表格 -->
         <div class="bg-white shadow-md rounded-lg overflow-hidden">
             <div class="grid grid-cols-5 bg-blue-100 p-4">
-                <div class="font-bold">Speaker</div>
-                <div class="font-bold">Prompt</div>
-                <div class="font-bold">Text</div>
-                <div class="font-bold">My TTS</div>
+                <div class="font-bold text-center">Speaker</div>
+                <div class="font-bold text-center">Prompt</div>
+                <div class="font-bold text-center">Text</div>
+                <div class="font-bold text-center">My TTS</div>
                 <div class="font-bold text-center">操作</div>
             </div>
 
@@ -51,6 +81,7 @@
             <form id="speaker-form">
                 <!-- 隐藏的ID字段，用于编辑模式 -->
                 <input type="hidden" name="speakerId" id="speakerId" value="" />
+                <input type="hidden" name="tableId" id="tableId" value="{{ current_table_id }}" />
 
                 <div class="grid grid-cols-2 gap-4">
                     <div>
@@ -150,6 +181,56 @@
                         取消
                     </button>
                     <button id="confirm-delete" class="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600">
+                        确认删除
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 新表格创建模态框 -->
+        <div id="new-table-modal" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center hidden">
+            <div class="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
+                <h3 class="text-lg font-medium text-gray-900">创建新表格</h3>
+                <form id="new-table-form" class="mt-4">
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium text-gray-700">表格名称</label>
+                        <input
+                            type="text"
+                            id="table-name"
+                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+                            required
+                        />
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium text-gray-700">描述 (选填)</label>
+                        <textarea
+                            id="table-description"
+                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+                            rows="2"
+                        ></textarea>
+                    </div>
+                    <div class="flex justify-end space-x-2">
+                        <button type="button" id="cancel-new-table" class="px-4 py-2 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400">
+                            取消
+                        </button>
+                        <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
+                            创建
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- 删除表格确认模态框 -->
+        <div id="delete-table-modal" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center hidden">
+            <div class="bg-white p-6 rounded-lg shadow-lg max-w-md">
+                <h3 class="text-lg font-medium text-gray-900">确认删除表格</h3>
+                <p class="mt-2 text-gray-500">您确定要删除整个表格吗？此操作将删除所有相关的语音比较记录，且无法撤销。</p>
+                <div class="mt-4 flex justify-end space-x-2">
+                    <button id="cancel-delete-table" class="px-4 py-2 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400">
+                        取消
+                    </button>
+                    <button id="confirm-delete-table" class="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600">
                         确认删除
                     </button>
                 </div>
